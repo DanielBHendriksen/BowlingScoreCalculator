@@ -8,14 +8,14 @@ namespace BowlingScoreCalculator
 {
     public class BowlingGame
     {
-        public List<int> throws = new List<int>();
+        public List<int> throws = new List<int>(); //list of total throws for a given game
 
-        public List<int> firstThrow = new List<int>();
-        public List<int> secondThrow = new List<int>();
+        public List<int> firstThrow = new List<int>(); //list of first throw for all the given rounds
+        public List<int> secondThrow = new List<int>(); //list of second throw for all the given rounds
 
         public int totalScore = 0;
         int Strike = 10;
-        int Spare = 10;
+        int Spare = 10; // redundant but kept for readability
         int roundNumber = 0;
         public BowlingGame(List<int> list)
         {
@@ -24,6 +24,7 @@ namespace BowlingScoreCalculator
         
         public void RunGame() //collected method that will execute the bowling game when run in Main
         {
+            ValidateInput();
             SortThrows();
             CalculateFirstRounds();
             CalculateLastRound();
@@ -105,6 +106,17 @@ namespace BowlingScoreCalculator
                 Console.WriteLine("Your score for round {0} is: {1}",roundNumber + 1, totalScore);
             else
                 Console.WriteLine("Your score for the last round is: " + totalScore);
+        }
+        public void ValidateInput()
+        {
+            if (throws.Count < 20 || throws.Count > 21)
+            {
+                throw new Exception("invalid number of throws, must be either 20 or 21");
+            }
+            if (totalScore < 0 || totalScore > 300)
+            {
+                throw new Exception("Invalid score. The scare can not be negative or higher than 300");
+            } 
         }
     }
 }

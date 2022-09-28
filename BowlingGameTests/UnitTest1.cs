@@ -9,7 +9,7 @@ namespace BowlingGameTests
    
     public class UnitTest1
     {
- 
+        
         List<int> throws = new List<int> { 8, 2, 3, 0, 7, 0, 10, 0, 0, 3, 1, 6, 2, 5, 0, 5, 2, 7, 5, 5, 8 };
 
         [TestMethod]
@@ -58,7 +58,6 @@ namespace BowlingGameTests
             game.CalculateFirstRounds();
             game.CalculateLastRound();
 
-
             // ASSERT
             Assert.AreEqual(totalScore, game.totalScore);
         }
@@ -80,8 +79,6 @@ namespace BowlingGameTests
 
             // ASSERT
             Assert.AreEqual("Your score for last round is: x", output);
-
-
         }
     }
 }
