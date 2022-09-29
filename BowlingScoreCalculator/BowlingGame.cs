@@ -46,7 +46,7 @@ namespace BowlingScoreCalculator
         }
         public void CalculateFirstRounds() //first rounds consist of round 1-9
         {
-            for (int i = 0; i < secondThrow.Count - 1; i++)
+            for (int i = 0; i < secondThrow.Count - 1; i++) // subtract 1 from the secondThrows list to make sure we dont go into the last round
             {
                 roundNumber = i;
                 if (firstThrow[i] == Strike) // if first throw is a strike
